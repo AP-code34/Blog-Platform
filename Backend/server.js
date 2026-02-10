@@ -9,6 +9,7 @@ import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import categoryRoutes from "./routes/category.route.js";
+import userRoutes from "./routes/user.route.js";
 
 // Import Category model
 import Category from "./models/category.js";
@@ -111,6 +112,7 @@ app.post("/test-json", (req, res) => {
 
 // API Routes - MUST come after middleware
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/categories", categoryRoutes);
