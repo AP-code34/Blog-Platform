@@ -1,10 +1,19 @@
 import React, { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Heart, Mail, LogOut, PenLine, BookOpen, User, Calendar } from "lucide-react";
-import { AuthContext } from "../../context/authcontext";
+import {
+  Heart,
+  Mail,
+  LogOut,
+  PenLine,
+  BookOpen,
+  User,
+  Calendar,
+} from "lucide-react";
+import { AuthContext } from "../../Context/Authcontext";
 import { apiRequest } from "../../services/api";
 
-const defaultAvatar = "https://ui-avatars.com/api/?name=User&background=ec4899&color=fff&size=150";
+const defaultAvatar =
+  "https://ui-avatars.com/api/?name=User&background=ec4899&color=fff&size=150";
 
 const Profile = () => {
   const { currentUser, logout } = useContext(AuthContext);
@@ -26,7 +35,9 @@ const Profile = () => {
       <div className="min-h-screen bg-gradient-to-br from-rose-50 via-purple-50 to-pink-50 flex items-center justify-center py-20 px-4">
         <div className="text-center bg-white/90 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white/50 max-w-md">
           <User className="mx-auto h-16 w-16 text-purple-500 mb-4" />
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Access Denied</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Access Denied
+          </h2>
           <p className="text-gray-600 mb-6">
             You must be signed in to view your profile.
           </p>
@@ -64,7 +75,11 @@ const Profile = () => {
                 </p>
                 <p className="text-white/80 text-sm mt-2 flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  Member since {new Date(currentUser.createdAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                  Member since{" "}
+                  {new Date(currentUser.createdAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </p>
               </div>
             </div>
@@ -73,10 +88,20 @@ const Profile = () => {
           <div className="p-8">
             {/* Account Details */}
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />
-                Account Details
-              </h2>
+              {/* Flex container for Title and Edit Button */}
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-rose-500 fill-rose-500" />
+                  Account Details
+                </h2>
+                <Link
+                  to="/edit-profile"
+                  className="flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-xl hover:bg-purple-200 transition-colors font-medium text-sm shadow-sm"
+                >
+                  <PenLine className="w-4 h-4" />
+                  Edit Profile
+                </Link>
+              </div>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-4 p-5 bg-gradient-to-r from-rose-50 to-purple-50 rounded-2xl border border-purple-100">
@@ -84,7 +109,9 @@ const Profile = () => {
                     <User className="w-5 h-5 text-purple-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-500">Username</p>
+                    <p className="text-sm font-medium text-gray-500">
+                      Username
+                    </p>
                     <p className="text-lg font-semibold text-gray-900">
                       {currentUser.username}
                     </p>
@@ -167,7 +194,8 @@ const Profile = () => {
 
         {/* Inspirational Quote */}
         <p className="text-center text-gray-600 text-sm mt-8 italic">
-          "Fill your paper with the breathings of your heart" - William Wordsworth
+          "Fill your paper with the breathings of your heart" - William
+          Wordsworth
         </p>
       </div>
     </div>

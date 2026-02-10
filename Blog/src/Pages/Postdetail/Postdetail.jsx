@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
-  FaUserCircle,
   FaClock,
   FaEye,
   FaCommentDots,
@@ -11,7 +10,7 @@ import {
   FaTag,
 } from "react-icons/fa";
 import { apiRequest } from "../../services/api";
-import { AuthContext } from "../../context/authcontext";
+import { AuthContext } from "../../Context/Authcontext";
 import CommentSection from "../../Components/post/Postcomment";
 import parse from "html-react-parser";
 

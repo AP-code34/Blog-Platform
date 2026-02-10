@@ -10,8 +10,9 @@ import Posts from "./Pages/Post/Post";
 import PostDetail from "./Pages/Postdetail/Postdetail";
 import WritePost from "./Pages/Writepost/Writepost";
 import Profile from "./Pages/Profile/Profile";
+import EditProfile from "./Pages/EditProfile/EditProfile";
 
-import { AuthContext } from "./context/authcontext";
+import { AuthContext } from "./Context/Authcontext";
 
 const App = () => {
   // Destructure currentUser from context
@@ -57,6 +58,17 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        
+        {/* NEW ROUTE: Edit Profile */}
+        <Route
+          path="edit-profile"
+          element={
+            <ProtectedRoute>
+              <EditProfile />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="create-post"
           element={
